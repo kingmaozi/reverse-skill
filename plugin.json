@@ -1,6 +1,6 @@
 {
   "name": "reverse-skill",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "网络安全技能路由包：44 个逆向/渗透/CTF/移动/固件场景技能，含全局路由与工具自举。上游 MIT（CTF-Sandbox-Orchestrator 为 GPL-3.0）。",
   "skills": "./skills/"
 }

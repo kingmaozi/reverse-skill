@@ -4,7 +4,37 @@
 
 ## 安装
 
-MiniMax Code：插件 → 导入 → 从 Git 仓库导入，粘贴本仓库地址。
+### Codex
+
+```bash
+# 把仓库放到本地插件目录
+git clone https://github.com/kingmaozi/reverse-skill.git ~/plugins/reverse-skill
+
+# 注册到 personal marketplace（~/.agents/plugins/marketplace.json）
+python3 - <<'PY'
+import json, pathlib
+p = pathlib.Path.home() / ".agents/plugins/marketplace.json"
+data = json.loads(p.read_text(encoding="utf-8"))
+if not any(e["name"] == "reverse-skill" for e in data["plugins"]):
+    data["plugins"].append({
+        "name": "reverse-skill",
+        "source": {"source": "local", "path": "./plugins/reverse-skill"},
+        "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+        "category": "逆向技能",
+    })
+    p.write_text(json.dumps(data, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+PY
+
+codex plugin add reverse-skill@personal
+```
+
+装好后用 `codex debug prompt-input` 可以确认 `reverse-skill:<技能名>` 已进入技能目录；新开一个会话即可使用。
+
+Codex 会递归扫描 skills/ 目录下的 SKILL.md，因此 44 个顶层技能、reverse-skill-router，以及 pentest-tools/src-hunter、reverse-engineering/dsl-vm-reverse 这类嵌套技能都会注册。skills/ 里同时放着 config/、ops/、scripts/、tests/、references/、field-journal/ 六个支撑目录，它们是路由脚本和证据链的依赖：scripts/master-route.sh 按 skills/config/routing.json 定位路由表，技能正文用 ../field-journal/ 引用先例记录。这些目录没有 SKILL.md，不是技能本身，Codex 会自动跳过。
+
+### MiniMax Code
+
+插件 → 导入 → 从 Git 仓库导入，粘贴本仓库地址：
 
 ```
 https://github.com/kingmaozi/reverse-skill

@@ -1,22 +1,41 @@
 {
-  "name": "reverse_skill",
-  "version": "1.0.2",
-  "description": "网络安全技能路由包：44 个逆向/渗透/CTF/移动/固件场景技能，含全局路由与工具自举。上游 MIT（CTF-Sandbox-Orchestrator 为 GPL-3.0）。",
+  "name": "reverse-skill",
+  "version": "1.0.3",
+  "description": "网络安全技能路由包：44 个逆向 / 渗透 / CTF / 移动 / 固件场景技能，含全局路由、证据链与工具自举。上游 zhaoxuya520/reverse-skill（MIT）。",
   "author": {
-    "name": "zhaoxuya520（上游），MiniMax Code 适配由 BriKing Family AI 提供"
+    "name": "zhaoxuya520（上游）| BriKing Family AI（适配）",
+    "url": "https://github.com/zhaoxuya520"
   },
+  "homepage": "https://github.com/kingmaozi/reverse-skill",
+  "repository": "https://github.com/kingmaozi/reverse-skill",
+  "license": "MIT",
+  "keywords": [
+    "reverse-engineering",
+    "penetration-testing",
+    "ctf",
+    "malware-analysis",
+    "mobile",
+    "firmware"
+  ],
   "skills": "./skills/",
   "interface": {
     "displayName": "Reverse Skill",
-    "shortDescription": "网络安全技能路由包：44 个逆向/渗透/CTF/移动/固件场景技能，含全局路由与工具自举。上游 MIT（CTF-Sand",
+    "shortDescription": "逆向 / 渗透 / CTF / 移动 / 固件共 44 个安全技能的路由包。",
+    "longDescription": "Reverse Skill 把 44 个安全技能收进一个路由包：二进制逆向（IDA、Ghidra、radare2、Binary Ninja、二进制差分、Go/Rust、macOS Mach-O、.NET）、移动与固件（APK、移动端、固件渗透、硬件接口、射频）、攻防链路（攻击链、Pwn、补丁差分利用、EDR 绕过、免杀规避）、渗透与后渗透（内网、Windows AD、云与 K8s、数据库、身份联邦）、蓝队（威胁狩猎、威胁情报、数字取证、邮件与供应链、LLM 安全），以及协议逆向、浏览器扩展、厚客户端、CTF 靶场、图表与报告生成。入口技能 reverse-skill-router 会先路由到对应 PRIMARY 技能再动手。上游 zhaoxuya520/reverse-skill（MIT），CTF-Sandbox-Orchestrator 相关部分为 GPL-3.0。",
+    "developerName": "zhaoxuya520 / BriKing Family AI",
     "category": "Code",
     "capabilities": [
       "Skills"
     ],
+    "websiteURL": "https://github.com/kingmaozi/reverse-skill",
     "defaultPrompt": [
       "按 reverse-skill 路由，分析这个 APK 的加固与脱壳思路。",
       "这个二进制该怎么入手做逆向？",
-      "帮我规划一次内网渗透的测试路径。"
-    ]
+      "帮我规划一次授权范围内的内网渗透测试路径。"
+    ],
+    "composerIcon": "./icon.png",
+    "logo": "./icon.png",
+    "logoDark": "./icon-dark.png",
+    "brandColor": "#1F6FEB"
   }
 }
